@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos com Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- Histograma -->
+    <div style="width: 400px; height: 400px;">
+        <canvas id="histogramChart"></canvas>
+    </div>
+
+    <script>
+        // Dados para o histograma
+        var histogramData = {
+            labels: ['0-10', '11-20', '21-30', '31-40', '41-50'], // Faixas de dados
+            datasets: [{
+                label: 'Frequência',
+                data: [15, 25, 20, 10, 30], // Frequência de ocorrência em cada faixa
+                backgroundColor: 'rgba(255, 99, 132, 0.5)', // Cor do histograma
+                borderColor: 'rgba(255, 99, 132, 1)', // Cor da borda
+                borderWidth: 1
+            }]
+        };
+
+        // Configurações do histograma
+        var histogramOptions = {
+            responsive: false,
+            scales: {
+                x: {
+                    grid: {
+                        display: false // Oculta linhas de grade no eixo X
+                    }
+                },
+                y: {
+                    beginAtZero: true // Começa o eixo Y em zero
+                }
+            }
+        };
+
+        // Criando o histograma
+        var histogramChart = new Chart(document.getElementById('histogramChart'), {
+            type: 'bar', // Tipo de gráfico é barra (histograma)
+            data: histogramData,
+            options: histogramOptions
+        });
+    </script>
+
+</body>
+
+</html>
